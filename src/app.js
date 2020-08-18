@@ -6,6 +6,7 @@ import winston from 'winston';
 import gradesRouter from './routes/grades.js';
 import { postGrade } from './routes/grades.js';
 
+const PORT = 3001;
 const LOCAL = 'http://192.168.1.180:3000';
 const app = express();
 
@@ -82,7 +83,7 @@ global.logger = winston.createLogger({
   ),
 });
 
-app.listen(3001, async () => {
+app.listen(PORT, async () => {
   /**
    * Reiniciando o arquivo com os dados
    * simulados. Comente a linha abaixo
