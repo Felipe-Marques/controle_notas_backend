@@ -6,9 +6,15 @@ import winston from 'winston';
 import gradesRouter from './routes/grades.js';
 import { postGrade } from './routes/grades.js';
 
+const LOCAL = 'http://192.168.1.180:3000';
 const app = express();
 
-app.use(cors({ origin: 'http://192.168.1.180:3000' }));
+if (LOCAL) {
+  app.use(cors({ origin: LOCAL }));
+} else {
+  app.use(cors({ origin: 'https://controle-notas-frontend.herokuapp.com/' }));
+}
+
 const exists = promisify(fs.exists);
 const writeFile = promisify(fs.writeFile);
 const deleteFile = promisify(fs.unlink);
@@ -82,7 +88,7 @@ app.listen(3001, async () => {
    * simulados. Comente a linha abaixo
    * se quiser preservar os dados
    */
-  await deleteFile(global.fileName);
+  //await deleteFile(global.fileName);
 
   try {
     const fileExists = await exists(global.fileName);
