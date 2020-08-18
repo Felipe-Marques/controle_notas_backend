@@ -7,14 +7,9 @@ import gradesRouter from './routes/grades.js';
 import { postGrade } from './routes/grades.js';
 
 const PORT = 3001;
-const LOCAL = 'http://192.168.1.180:3000';
 const app = express();
 
-if (LOCAL) {
-  app.use(cors({ origin: LOCAL }));
-} else {
-  app.use(cors({ origin: 'https://controle-notas-frontend.herokuapp.com/' }));
-}
+app.use(cors({ origin: 'https://controle-notas-frontend.herokuapp.com/' }));
 
 const exists = promisify(fs.exists);
 const writeFile = promisify(fs.writeFile);
