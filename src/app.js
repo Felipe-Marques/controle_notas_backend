@@ -86,7 +86,7 @@ app.listen(PORT, async () => {
    * simulados. Comente a linha abaixo
    * se quiser preservar os dados
    */
-  await deleteFile(global.fileName);
+  //await deleteFile(global.fileName);
 
   try {
     const fileExists = await exists(global.fileName);
