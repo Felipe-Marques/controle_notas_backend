@@ -9,7 +9,7 @@ import { postGrade } from './routes/grades.js';
 const PORT = 3001;
 const app = express();
 
-app.use(cors({ origin: 'https://controle-notas-frontend.herokuapp.com/' }));
+app.use(cors({ origin: 'https://controle-notas-frontend.herokuapp.com' }));
 
 const exists = promisify(fs.exists);
 const writeFile = promisify(fs.writeFile);
@@ -84,7 +84,7 @@ app.listen(PORT, async () => {
    * simulados. Comente a linha abaixo
    * se quiser preservar os dados
    */
-  //await deleteFile(global.fileName);
+  await deleteFile(global.fileName);
 
   try {
     const fileExists = await exists(global.fileName);
