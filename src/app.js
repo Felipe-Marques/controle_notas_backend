@@ -6,7 +6,7 @@ import winston from 'winston';
 import gradesRouter from './routes/grades.js';
 import { postGrade } from './routes/grades.js';
 
-const PORT = 3001;
+// const PORT = 3001;
 const app = express();
 
 app.use(cors({ origin: 'https://controle-notas-frontend.herokuapp.com' }));
@@ -78,7 +78,7 @@ global.logger = winston.createLogger({
   ),
 });
 
-app.listen(PORT, async () => {
+app.listen(async () => {
   /**
    * Reiniciando o arquivo com os dados
    * simulados. Comente a linha abaixo
